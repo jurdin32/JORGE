@@ -17,7 +17,9 @@ class Persona(models.Model):
     apellidos=models.CharField(max_length=60)
     fecha_nacimiento=models.DateField()
     edad=models.IntegerField(default=0)
-
+    estado_civil=models.CharField(max_length=30, choices=(("Soltero","Soltero"),("Casado","Casado"),("Viudo","Viudo"),("Divorciado","Divorciado"),),null=True,blank=True)
+    sexo=models.CharField(max_length=30, choices=(("Masculino","Masculino"),("Femenino","Femenino")),null=True,blank=True)
+    telefono=models.CharField(max_length=13,default="0000000000")
     def __str__(self):
         return "%s %s"%(self.nombres, self.apellidos)
 
